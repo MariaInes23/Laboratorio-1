@@ -71,26 +71,48 @@ static void IngresarProducto()
                 Console.Write("Entrada no válida. Ingrese un número válido: ");
             }
 }
-static void AcumularProducto()
+static double AcumularProducto()
 {
-
-    Console.Write("Cantidad");
+    double precioProductoUno, precioProductoDos;
+    double suma;
+    string nombreProductoUno, nombreProductoDos;
+    Console.Write("Nombre del producto 1:");
     try
     {
-        nombreProducto = Console.ReadLine();
+        nombreProductoUno = Console.ReadLine();
+    }
+    catch (FormatException)
+    {
+        Console.Write("Entrada no válida. Ingrese un número válido: ");
+    }
+    Console.Write("Nombre del producto 2:");
+    try
+    {
+        nombreProductoDos = Console.ReadLine();
     }
     catch (FormatException)
     {
         Console.Write("Entrada no válida. Ingrese un número válido: ");
     }
 
-    Console.Write($"Ingrese el precio del precio ");
+    Console.Write($"Ingrese el precio del producto 1:");
     try
     {
-        precioProducto = Convert.ToDouble(Console.ReadLine());
+        precioProductoUno = Convert.ToDouble(Console.ReadLine());
     }
     catch (FormatException)
     {
         Console.Write("Entrada no válida. Ingrese un número válido: ");
     }
+    Console.Write($"Ingrese el precio del producto 2:");
+    try
+    {
+        precioProductoDos = Convert.ToDouble(Console.ReadLine());
+    }
+    catch (FormatException)
+    {
+        Console.Write("Entrada no válida. Ingrese un número válido: ");
+    }
+    suma = precioProductoUno + precioProductoDos;
+    Console.Write("Total de precios: " + suma);
 }
