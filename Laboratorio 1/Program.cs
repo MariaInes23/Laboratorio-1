@@ -1,6 +1,4 @@
-﻿List<double> numeros = new List<double>();
-
-while (true)
+﻿while (true)
 {
     Console.Clear();
     MostrarMenu();
@@ -10,7 +8,10 @@ while (true)
         switch (opcion)
         {
             case 1:
-                producto = ListaProducto();
+                IngresarProducto();
+                break;
+            case 2:
+                AcumularProducto();
                 break;
             case 6:
                 Console.WriteLine("Saliendo...");
@@ -45,63 +46,51 @@ static void MostrarMenu()
     Console.Write("Selecciona una opción: ");
 }
 
-static List<string> ListaProducto()
+static void IngresarProducto()
 {
-    List<string> producto = new List<string>();
-    List<double> precio = new List<double>();
-
-    Console.Write("Ingrese la cantidad de productos que desea introducir: ");
-    int cantidad;
-    while (true)
-    {
-        try
-        {
-            cantidad = Convert.ToInt32(Console.ReadLine());
-            if (cantidad <= 0)
-            {
-                Console.Write("La cantidad debe ser un número entero positivo. Inténtelo de nuevo: ");
-                continue;
-            }
-            break;
-        }
-        catch (FormatException)
-        {
-            Console.Write("Entrada no válida. Ingrese un número entero positivo: ");
-        }
-    }
-
-    for (int i = 0; i < cantidad; i++)
-    {
         string nombreProducto;
         double precioProducto;
-        while (true)
-        {
-            Console.Write($"Ingrese el producto {i + 1}: ");
+
+            Console.Write($"Ingrese el producto: ");
             try
             {
                 nombreProducto= Console.ReadLine();
-                break;
             }
             catch (FormatException)
             {
                 Console.Write("Entrada no válida. Ingrese un número válido: ");
             }
-        }
-        nombreProducto.Add(producto);
 
-        while (true)
-        {
-            Console.Write($"Ingrese el precio del producto {i + 1}: ");
+            Console.Write($"Ingrese el precio del precio ");
             try
             {
                 precioProducto = Convert.ToDouble(Console.ReadLine());
-                break;
             }
             catch (FormatException)
             {
                 Console.Write("Entrada no válida. Ingrese un número válido: ");
             }
-        }
-        precioProducto.Add(precio);
+}
+static void AcumularProducto()
+{
+
+    Console.Write("Cantidad");
+    try
+    {
+        nombreProducto = Console.ReadLine();
+    }
+    catch (FormatException)
+    {
+        Console.Write("Entrada no válida. Ingrese un número válido: ");
+    }
+
+    Console.Write($"Ingrese el precio del precio ");
+    try
+    {
+        precioProducto = Convert.ToDouble(Console.ReadLine());
+    }
+    catch (FormatException)
+    {
+        Console.Write("Entrada no válida. Ingrese un número válido: ");
     }
 }
